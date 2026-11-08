@@ -1,0 +1,8 @@
+{
+  "appId": "com.poolmaster3d.game",
+  "appName": "PoolMaster3D",
+  "webDir": "dist",
+  "backgroundColor": "#0b1410",
+  "server": { "androidScheme": "https" },
+  "android": { "allowMixedContent": false }
+}

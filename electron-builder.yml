@@ -1,0 +1,42 @@
+# PoolMaster3D - electron-builder configuration (Windows x64 / NSIS)
+appId: com.poolmaster3d.game
+productName: PoolMaster3D
+copyright: Copyright (c) 2026 PoolMaster3D
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - electron/**/*
+  - "!electron/installer/**"
+  - build/icon.ico
+  - package.json
+asar: true
+compression: normal
+publish: null
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: build/icon.ico
+  artifactName: PoolMaster3D-Setup.${ext}
+  requestedExecutionLevel: asInvoker
+nsis:
+  oneClick: false                         # show the full installation wizard
+  perMachine: true                        # default folder: C:\Program Files\PoolMaster3D
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: false            # shortcuts are created from the options page (installer.nsh)
+  createStartMenuShortcut: false
+  runAfterFinish: true                    # "Run PoolMaster3D" check box on the finish page
+  shortcutName: PoolMaster3D
+  uninstallDisplayName: PoolMaster3D
+  deleteAppDataOnUninstall: false         # user data is only removed if the user agrees (installer.nsh)
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  installerHeaderIcon: build/icon.ico
+  installerSidebar: build/installerSidebar.bmp
+  uninstallerSidebar: build/installerSidebar.bmp
+  artifactName: PoolMaster3D-Setup.${ext}
+  include: electron/installer/installer.nsh
